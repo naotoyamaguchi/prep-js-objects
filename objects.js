@@ -6,7 +6,11 @@
             - Add a property named `size` and set it to a number value between `0` and `20`.
             - Add a property named `contents` and set it to be an empty array.
  */
+var plainBox = {};
 
+plainBox.color = "Blue";
+plainBox.size = 15;
+plainBox.contents = [];
 
 /*
     # An object with properties declared line by line
@@ -23,6 +27,14 @@
             - add a key named `passengers` and set it to be an empty array.
  */
 
+var stockCar = {
+    model : "Ford",
+    year : 2016,
+    automaticTransmission : false,
+    driver : null,
+    passengers : []
+
+};
 
 /*
     Add new property inside a function
