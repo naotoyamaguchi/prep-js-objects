@@ -201,17 +201,18 @@ console.log(printObj(sumObjResult));
  */
 
 var plainBox ={
-	contents : 0
+	contents : []
 };
 
 function putInPlainBox(test3){
 	for (var i = 0; i <= 10; i++){
-		test3.contents = Math.random() + test3.contents;
+		test3.contents[i] = Math.floor(Math.random()*100);
 	}
 	return test3.contents;
 }
 
 plainBoxResult = putInPlainBox(plainBox);
+
 console.log(plainBoxResult);
 
 /*
@@ -243,7 +244,12 @@ console.log(isAutomaticTransmission);
         Invoke your function and pass in your objects, store the result to a variable named stockCarWithDriver, and inspect your results. Consider using `plainPerson` as your driver.
  */
 
+function addDriver(car, person){
+	car.driver = person;
+	return car;
+}
 
+console.log(addDriver(stockCar, plainPerson));
 /*
     # Final Boss
     The Dev League instructors want to ride your whip!
@@ -259,6 +265,8 @@ console.log(isAutomaticTransmission);
         You will have to populate the `passengers` array on the **car** object with proper objects that represent a person. Currently you have two arrays, one which contains names and another which contains ages.
 
         You should iterate through the names and ages, pass the values to your `buildPerson` function to build person objects (remember that this function returns a new object). Don't forget that this function actually takes **three** arguments, how will you handle that? (you should not have to change your function).
+
+
 
     Example of a loaded Car:
 
@@ -277,3 +285,34 @@ console.log(isAutomaticTransmission);
         'Victor, age 19, is riding dirty!'
  */
 
+ //
+//  function buildPerson(person, nameString, age){
+//     person.name = nameString;
+//     person.age = age;
+//     return person;
+// }
+
+var passengerArray = [];
+var passengerList = ['Jon', 'Jason', 'Tony', 'Joe', 'Jesse', 'Nigel', 'Kelli', 'Marifel', 'Victor'];
+var passengerAges = [19, 12, 21, 22, 16, 9, 19, 20, 15];
+
+function addPassengers(car, names, ages){
+	for (var i = 0; i < names.length; i++){
+		var newPerson = {};
+		car.passengers[i] = buildPerson (newPerson, names[i], ages[i]);
+		}
+		return car;
+}
+
+console.log(addPassengers(stockCar, passengerList, passengerAges));
+
+
+
+
+function displayPassengers(car){
+	for (var i = 0; i < car.passengers.length; i++){
+		console.log(car.passengers[i].name + ", age " + car.passengers[i].age + ", is riding dirty!");
+	}
+}
+
+displayPassengers(stockCar);
